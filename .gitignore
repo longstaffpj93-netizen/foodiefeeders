@@ -1,0 +1,5 @@
+﻿@echo off
+foodiefeeders.zip
+.DS_Store
+*.tmp
+
