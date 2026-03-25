@@ -60,9 +60,10 @@
                 <span class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold mt-1">Hartlepool • TS24 0DN</span>
             </div>
 
-            <div class="hidden md:flex items-center gap-6 ml-10">
+            <div class="flex items-center gap-6 ml-10">
                 <a href="#mains" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Mains</a>
                 <a href="#specials" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Specials</a>
+                <a href="#pizzas" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Pizzas</a>
                 <a href="#desserts" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Desserts</a>
                 <a href="#dips-extras" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Dips & Extras</a>
             </div>
@@ -116,6 +117,9 @@
 
         <!-- Section: House Specials -->
         <div id="specials-section"></div>
+
+        <!-- Section: Pizzas -->
+        <div id="pizzas-section"></div>
 
         <!-- Section: Desserts -->
         <div id="desserts-section"></div>
@@ -224,6 +228,11 @@
                 { id: 'creamyTagliatelle', name: 'Creamy Tagliatelle', price: 8.95, description: 'Indulgent fresh tagliatelle ribbons tossed in a rich, creamy garlic & herb sauce.', image: 'taglatli.jpeg' },
                 { id: 'dailyQuiche', name: 'Daily Quiche Slice', price: 3.95, description: 'Homemade savoury quiche with seasonal fillings, served fresh or warmed.', image: 'quiche.jpeg' },
             ],
+            pizzas: [
+                { id: 'pepperoniPizza', name: 'Classic Pepperoni Pizza', price: 9.99, description: 'Generous slices of pepperoni and mozzarella on a rich tomato base.', image: 'https://via.placeholder.com/400x220/1e293b/ef4444?text=Pepperoni+Pizza' },
+                { id: 'margheritaPizza', name: 'Margherita Pizza', price: 8.99, description: 'Traditional Italian pizza with fresh mozzarella, basil, and a vibrant tomato sauce.', image: 'https://via.placeholder.com/400x220/1e293b/fde047?text=Margherita+Pizza' },
+                { id: 'vegSupremePizza', name: 'Vegetable Supreme Pizza', price: 10.49, description: 'A delightful mix of fresh bell peppers, onions, mushrooms, olives, and sweetcorn.', image: 'https://via.placeholder.com/400x220/1e293b/22c55e?text=Veg+Supreme+Pizza' },
+            ],
             desserts: [
                 { id: 'chocFudgeCake', name: 'Rich Chocolate Fudge Cake', price: 4.50, description: 'Decadent layers of chocolate sponge and fudge frosting, served with a scoop of vanilla ice cream.', image: 'https://via.placeholder.com/400x220/1e293b/a78bfa?text=Chocolate+Cake' },
                 { id: 'appleCrumble', name: 'Classic Apple Crumble', price: 4.00, description: 'Warm, comforting apple crumble with a buttery oat topping, served with hot custard.', image: 'https://via.placeholder.com/400x220/1e293b/fde047?text=Apple+Crumble' },
@@ -296,10 +305,12 @@
             // Need to remove hardcoded menu HTML first, then render dynamically
             document.getElementById('mains-section').innerHTML = '';
             document.getElementById('specials-section').innerHTML = '';
+            document.getElementById('pizzas-section').innerHTML = '';
             document.getElementById('desserts-section').innerHTML = '';
 
             renderMenuItems('mains', 'mains-section', 'The Mains', 'Premium Ingredients • Locally Sourced');
             renderMenuItems('specials', 'specials-section', 'House Specials', 'Prepared Fresh Daily • Limited Availability', 'text-amber-500');
+            renderMenuItems('pizzas', 'pizzas-section', 'Perfect Pizzas', 'Hand-Stretched & Stone-Baked', 'text-red-400');
             renderMenuItems('desserts', 'desserts-section', 'Sweet Endings', 'Indulgent Treats • Daily Selection', 'text-red-500');
 
             // For drinks, dips, extras, we'll render these separately as they have a different layout
@@ -384,10 +395,10 @@
                     btn.classList.replace('bg-green-600', 'bg-slate-800');
                 }, 1000);
             }
-
-            if (document.getElementById('cart-sidebar').classList.contains('translate-x-full')) {
-                setTimeout(toggleCart, 500);
-            }
+            // Removed automatic cart toggle after adding item.
+            // if (document.getElementById('cart-sidebar').classList.contains('translate-x-full')) {
+            //     setTimeout(toggleCart, 500);
+            // }
         }
 
         function addCustomItem(id, price, suffix="") {
