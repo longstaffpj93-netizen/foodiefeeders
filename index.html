@@ -59,6 +59,13 @@
                 <span class="text-2xl md:text-3xl font-black text-amber-500 italic tracking-tighter uppercase leading-none">FoodieFeeders</span>
                 <span class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-bold mt-1">Hartlepool • TS24 0DN</span>
             </div>
+
+            <div class="hidden md:flex items-center gap-6 ml-10">
+                <a href="#mains" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Mains</a>
+                <a href="#specials" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Specials</a>
+                <a href="#desserts" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Desserts</a>
+                <a href="#dips-extras" class="text-slate-300 hover:text-amber-500 font-bold transition-colors">Dips & Extras</a>
+            </div>
             
             <div class="flex items-center gap-4">
                 <a href="tel:07887771609" class="hidden md:flex items-center gap-2 bg-slate-900 border border-slate-700 hover:border-amber-500 px-4 py-2 rounded-full text-xs font-bold transition-all">
@@ -105,7 +112,7 @@
     <main id="menu" class="max-w-7xl mx-auto py-16 px-6">
         
         <!-- Section: Mains -->
-        <div class="mb-12">
+        <div id="mains" class="mb-12">
             <div class="flex items-end gap-4 mb-4">
                 <h2 class="text-3xl font-black uppercase italic leading-none">The Mains</h2>
                 <div class="h-1 flex-grow bg-slate-800 mb-1 rounded-full"></div>
@@ -187,7 +194,7 @@
         </div>
 
         <!-- Section: House Specials -->
-        <div class="mb-12">
+        <div id="specials" class="mb-12">
             <div class="flex items-end gap-4 mb-4">
                 <h2 class="text-3xl font-black uppercase italic leading-none text-amber-500">House Specials</h2>
                 <div class="h-1 flex-grow bg-slate-800 mb-1 rounded-full"></div>
@@ -274,8 +281,51 @@
 
         </div>
 
+        <!-- Section: Desserts -->
+        <div id="desserts" class="mb-12">
+            <div class="flex items-end gap-4 mb-4">
+                <h2 class="text-3xl font-black uppercase italic leading-none text-red-500">Sweet Endings</h2>
+                <div class="h-1 flex-grow bg-slate-800 mb-1 rounded-full"></div>
+            </div>
+            <p class="text-slate-500 text-xs font-bold tracking-[0.3em] uppercase">Indulgent Treats • Daily Selection</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+            
+            <!-- Chocolate Fudge Cake -->
+            <div class="food-card bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800 backdrop-blur-sm group">
+                <div class="overflow-hidden">
+                    <img src="https://via.placeholder.com/400x220/1e293b/a78bfa?text=Chocolate+Cake" class="food-image" loading="lazy" alt="Chocolate Fudge Cake">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-black uppercase italic mb-4 group-hover:text-red-500 transition-colors">Rich Chocolate Fudge Cake</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">Decadent layers of chocolate sponge and fudge frosting, served with a scoop of vanilla ice cream.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-black text-white italic">£4.50</span>
+                        <button onclick="addToCart('Chocolate Fudge Cake', 4.50)" class="bg-slate-800 hover:bg-red-500 hover:text-slate-950 text-white font-black px-6 py-3 rounded-xl text-xs uppercase tracking-widest transition-all active:scale-95 shadow-lg">Add to Bag</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Apple Crumble -->
+            <div class="food-card bg-slate-900/50 rounded-3xl overflow-hidden border border-slate-800 backdrop-blur-sm group">
+                <div class="overflow-hidden">
+                    <img src="https://via.placeholder.com/400x220/1e293b/fde047?text=Apple+Crumble" class="food-image" loading="lazy" alt="Apple Crumble">
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-black uppercase italic mb-4 group-hover:text-red-500 transition-colors">Classic Apple Crumble</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-8">Warm, comforting apple crumble with a buttery oat topping, served with hot custard.</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-black text-white italic">£4.00</span>
+                        <button onclick="addToCart('Apple Crumble', 4.00)" class="bg-slate-800 hover:bg-red-500 hover:text-slate-950 text-white font-black px-6 py-3 rounded-xl text-xs uppercase tracking-widest transition-all active:scale-95 shadow-lg">Add to Bag</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
         <!-- Section: Drinks & Dips -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="dips-extras" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl">
                 <h4 class="text-amber-500 text-[10px] font-black uppercase tracking-widest mb-4">Cold Drinks</h4>
                 <select id="drink-type" class="w-full bg-slate-800 border border-slate-700 p-4 rounded-xl text-sm font-bold mb-6 appearance-none cursor-pointer outline-none focus:border-amber-500 transition-all">
@@ -283,6 +333,7 @@
                     <option value="Diet Coke">Diet Coke</option>
                     <option value="Fanta">Orange Fanta</option>
                     <option value="Dr Pepper">Dr Pepper</option>
+                    <option value="Lemonade">Lemonade</option>
                 </select>
                 <button onclick="addCustomItem('drink-type', 1.20)" class="w-full bg-amber-500/10 hover:bg-amber-500 text-amber-500 hover:text-slate-950 border border-amber-500/20 font-black p-4 rounded-xl text-[10px] uppercase tracking-widest transition-all">Add to Bag • £1.20</button>
             </div>
@@ -293,6 +344,8 @@
                     <option value="Garlic Mayo">Creamy Garlic Mayo</option>
                     <option value="BBQ">Smoky BBQ</option>
                     <option value="Spicy House">Secret Spicy House</option>
+                    <option value="Sweet Chilli">Sweet Chilli</option>
+                    <option value="Ketchup">Classic Ketchup</option>
                 </select>
                 <button onclick="addCustomItem('dip-type', 0.80)" class="w-full bg-blue-500/10 hover:bg-blue-500 text-blue-400 hover:text-slate-950 border border-blue-500/20 font-black p-4 rounded-xl text-[10px] uppercase tracking-widest transition-all">Add to Bag • £0.80</button>
             </div>
@@ -304,6 +357,15 @@
                     <p class="text-slate-400 text-xs mb-6">Cool & crunchy, the perfect side.</p>
                 </div>
                 <button onclick="addToCart('Coleslaw', 1.50)" class="w-full bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 border border-emerald-500/20 font-black p-4 rounded-xl text-[10px] uppercase tracking-widest transition-all">Add to Bag • £1.50</button>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl flex flex-col justify-between">
+                <div>
+                    <h4 class="text-emerald-400 text-[10px] font-black uppercase tracking-widest mb-4">Side Chips</h4>
+                    <p class="text-xl font-black italic uppercase mb-1">Chunky Chips</p>
+                    <p class="text-slate-400 text-xs mb-6">Seasoned skin-on fries, perfect with any meal.</p>
+                </div>
+                <button onclick="addToCart('Side Chips', 2.50)" class="w-full bg-emerald-500/10 hover:bg-emerald-500 text-emerald-400 hover:text-slate-950 border border-emerald-500/20 font-black p-4 rounded-xl text-[10px] uppercase tracking-widest transition-all">Add to Bag • £2.50</button>
             </div>
         </div>
     </main>
